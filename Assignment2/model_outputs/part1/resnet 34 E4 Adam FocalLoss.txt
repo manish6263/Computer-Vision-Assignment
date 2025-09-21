@@ -1,0 +1,15 @@
+
+Model: ResNet34, learning rate = 1E-4, optimizer_type="Adam", loss_type='FocalLoss', lr_sheduler='StepLR'
+
+Train Acc (Epoch 10): 98.66065979003906 
+Train Acc (Epoch 20): 99.91722106933594 
+Train Acc (Epoch 25): 99.95841979980469 
+Valid Acc (Epoch 10): 83.843994140625 
+Valid Acc (Epoch 20): 84.954833984375 
+Valid Acc (Epoch 25): 85.467529296875
+
+
+Accuracy: 85%
+Precision: 88%
+Recall: 85%
+F1-score: 85%

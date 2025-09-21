@@ -1,0 +1,10 @@
+Epoch 10: Trian Loss = 0.2260, Train Acc = 91.08%,Valid Loss = 0.3347, Valid Acc = 87.12 
+Epoch 20: Trian Loss = 0.1817, Train Acc = 93.03%,Valid Loss = 0.2708, Valid Acc = 90.02 
+Epoch 25: Trian Loss = 0.1698, Train Acc = 93.64%,Valid Loss = 0.2491, Valid Acc = 90.12 
+
+
+Test Results:
+Accuracy  = 90.14%
+Precision = 90.52%
+Recall    = 89.65%
+F1 Score  = 90.08%

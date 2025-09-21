@@ -1,0 +1,13 @@
+Model: ResNet18, learning rate = 1E-3, optimizer_type="SGD", loss_type='CrossEntropy', lr_sheduler='StepLR'
+Train Acc (Epoch 10): 99.38735961914062 
+Train Acc (Epoch 20): 99.94773864746094 
+Train Acc (Epoch 25): 99.95880126953125 
+Valid Acc (Epoch 10): 84.6832275390625 
+Valid Acc (Epoch 20): 85.0555419921875 
+Valid Acc (Epoch 25): 84.8388671875
+
+
+Accuracy: 85%
+Precision: 87%
+Recall: 85%
+F1-score: 85%

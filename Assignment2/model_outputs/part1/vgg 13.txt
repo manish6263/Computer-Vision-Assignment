@@ -1,0 +1,15 @@
+
+Model: VGG13, learning rate = 1E-3, optimizer_type="SGD", loss_type='CrossEntropy', lr_sheduler='StepLR'
+
+Train Acc (Epoch 10): 99.50065612792969 
+Train Acc (Epoch 20): 99.99046325683594 
+Train Acc (Epoch 25): 99.99160766601562 
+Valid Acc (Epoch 10): 87.7410888671875 
+Valid Acc (Epoch 20): 86.865234375 
+Valid Acc (Epoch 25): 86.944580078125
+
+
+Accuracy: 87%
+Precision: 89%
+Recall: 87%
+F1-score: 87%

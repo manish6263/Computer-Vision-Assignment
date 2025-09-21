@@ -1,0 +1,11 @@
+Fixed y_true shape: (32768,), y_pred shape: (32768,)
+Accuracy: 0.86, Precision: 0.88, Recall: 0.86, F1-score: 0.86
+
+
+Model: VGG11 
+Train Acc (Epoch 10): 99.41635131835938 
+Train Acc (Epoch 20): 99.98130798339844 
+Train Acc (Epoch 25): 99.9847412109375 
+Valid Acc (Epoch 10): 83.648681640625 
+Valid Acc (Epoch 20): 85.784912109375 
+Valid Acc (Epoch 25): 85.9283447265625
