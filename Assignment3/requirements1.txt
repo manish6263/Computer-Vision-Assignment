@@ -1,0 +1,7 @@
+torch>=1.10           # PyTorch for model training and inference
+torchvision           # Vision utilities and pretrained backbones
+transformers          # Hugging Face Deformable DETR model & processor
+pycocotools           # COCO dataset evaluation
+tqdm                  # Progress bars
+Pillow                # Image I/O
+matplotlib            # Plotting training curves and visualizations

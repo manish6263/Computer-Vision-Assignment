@@ -1,0 +1,12 @@
+names:
+- person
+- car
+- train
+- rider
+- truck
+- motorcycle
+- bicycle
+- bus
+nc: 8
+train: /kaggle/working/task3_yolo/train/images
+val: /kaggle/working/task3_yolo/val/images

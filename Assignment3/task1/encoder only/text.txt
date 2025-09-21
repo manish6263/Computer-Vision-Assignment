@@ -1,0 +1,632 @@
+Training only the encoder
+Model configuration:
+DeformableDetrConfig {
+  "_attn_implementation_autoset": true,
+  "activation_dropout": 0.0,
+  "activation_function": "relu",
+  "architectures": [
+    "DeformableDetrForObjectDetection"
+  ],
+  "attention_dropout": 0.0,
+  "auxiliary_loss": false,
+  "backbone": "resnet50",
+  "backbone_config": null,
+  "backbone_kwargs": {
+    "in_chans": 3,
+    "out_indices": [
+      2,
+      3,
+      4
+    ]
+  },
+  "bbox_cost": 5,
+  "bbox_loss_coefficient": 5,
+  "class_cost": 1,
+  "d_model": 256,
+  "decoder_attention_heads": 8,
+  "decoder_ffn_dim": 1024,
+  "decoder_layerdrop": 0.0,
+  "decoder_layers": 6,
+  "decoder_n_points": 4,
+  "dice_loss_coefficient": 1,
+  "dilation": false,
+  "disable_custom_kernels": false,
+  "dropout": 0.1,
+  "encoder_attention_heads": 8,
+  "encoder_ffn_dim": 1024,
+  "encoder_layerdrop": 0.0,
+  "encoder_layers": 6,
+  "encoder_n_points": 4,
+  "eos_coefficient": 0.1,
+  "focal_alpha": 0.25,
+  "giou_cost": 2,
+  "giou_loss_coefficient": 2,
+  "id2label": {
+    "0": "N/A",
+    "1": "person",
+    "2": "bicycle",
+    "3": "car",
+    "4": "motorcycle",
+    "5": "airplane",
+    "6": "bus",
+    "7": "train",
+    "8": "truck",
+    "9": "boat",
+    "10": "traffic light",
+    "11": "fire hydrant",
+    "12": "N/A",
+    "13": "stop sign",
+    "14": "parking meter",
+    "15": "bench",
+    "16": "bird",
+    "17": "cat",
+    "18": "dog",
+    "19": "horse",
+    "20": "sheep",
+    "21": "cow",
+    "22": "elephant",
+    "23": "bear",
+    "24": "zebra",
+    "25": "giraffe",
+    "26": "N/A",
+    "27": "backpack",
+    "28": "umbrella",
+    "29": "N/A",
+    "30": "N/A",
+    "31": "handbag",
+    "32": "tie",
+    "33": "suitcase",
+    "34": "frisbee",
+    "35": "skis",
+    "36": "snowboard",
+    "37": "sports ball",
+    "38": "kite",
+    "39": "baseball bat",
+    "40": "baseball glove",
+    "41": "skateboard",
+    "42": "surfboard",
+    "43": "tennis racket",
+    "44": "bottle",
+    "45": "N/A",
+    "46": "wine glass",
+    "47": "cup",
+    "48": "fork",
+    "49": "knife",
+    "50": "spoon",
+    "51": "bowl",
+    "52": "banana",
+    "53": "apple",
+    "54": "sandwich",
+    "55": "orange",
+    "56": "broccoli",
+    "57": "carrot",
+    "58": "hot dog",
+    "59": "pizza",
+    "60": "donut",
+    "61": "cake",
+    "62": "chair",
+    "63": "couch",
+    "64": "potted plant",
+    "65": "bed",
+    "66": "N/A",
+    "67": "dining table",
+    "68": "N/A",
+    "69": "N/A",
+    "70": "toilet",
+    "71": "N/A",
+    "72": "tv",
+    "73": "laptop",
+    "74": "mouse",
+    "75": "remote",
+    "76": "keyboard",
+    "77": "cell phone",
+    "78": "microwave",
+    "79": "oven",
+    "80": "toaster",
+    "81": "sink",
+    "82": "refrigerator",
+    "83": "N/A",
+    "84": "book",
+    "85": "clock",
+    "86": "vase",
+    "87": "scissors",
+    "88": "teddy bear",
+    "89": "hair drier",
+    "90": "toothbrush"
+  },
+  "init_std": 0.02,
+  "init_xavier_std": 1.0,
+  "is_encoder_decoder": true,
+  "label2id": {
+    "N/A": 83,
+    "airplane": 5,
+    "apple": 53,
+    "backpack": 27,
+    "banana": 52,
+    "baseball bat": 39,
+    "baseball glove": 40,
+    "bear": 23,
+    "bed": 65,
+    "bench": 15,
+    "bicycle": 2,
+    "bird": 16,
+    "boat": 9,
+    "book": 84,
+    "bottle": 44,
+    "bowl": 51,
+    "broccoli": 56,
+    "bus": 6,
+    "cake": 61,
+    "car": 3,
+    "carrot": 57,
+    "cat": 17,
+    "cell phone": 77,
+    "chair": 62,
+    "clock": 85,
+    "couch": 63,
+    "cow": 21,
+    "cup": 47,
+    "dining table": 67,
+    "dog": 18,
+    "donut": 60,
+    "elephant": 22,
+    "fire hydrant": 11,
+    "fork": 48,
+    "frisbee": 34,
+    "giraffe": 25,
+    "hair drier": 89,
+    "handbag": 31,
+    "horse": 19,
+    "hot dog": 58,
+    "keyboard": 76,
+    "kite": 38,
+    "knife": 49,
+    "laptop": 73,
+    "microwave": 78,
+    "motorcycle": 4,
+    "mouse": 74,
+    "orange": 55,
+    "oven": 79,
+    "parking meter": 14,
+    "person": 1,
+    "pizza": 59,
+    "potted plant": 64,
+    "refrigerator": 82,
+    "remote": 75,
+    "sandwich": 54,
+    "scissors": 87,
+    "sheep": 20,
+    "sink": 81,
+    "skateboard": 41,
+    "skis": 35,
+    "snowboard": 36,
+    "spoon": 50,
+    "sports ball": 37,
+    "stop sign": 13,
+    "suitcase": 33,
+    "surfboard": 42,
+    "teddy bear": 88,
+    "tennis racket": 43,
+    "tie": 32,
+    "toaster": 80,
+    "toilet": 70,
+    "toothbrush": 90,
+    "traffic light": 10,
+    "train": 7,
+    "truck": 8,
+    "tv": 72,
+    "umbrella": 28,
+    "vase": 86,
+    "wine glass": 46,
+    "zebra": 24
+  },
+  "mask_loss_coefficient": 1,
+  "max_position_embeddings": 1024,
+  "model_type": "deformable_detr",
+  "num_channels": 3,
+  "num_feature_levels": 4,
+  "num_queries": 300,
+  "position_embedding_type": "sine",
+  "torch_dtype": "float32",
+  "transformers_version": "4.51.1",
+  "two_stage": false,
+  "two_stage_num_proposals": 300,
+  "use_pretrained_backbone": true,
+  "use_timm_backbone": true,
+  "with_box_refine": false
+}
+
+
+Starting training...
+
+Epoch 1/10
+Training: 100%|██████████| 2363/2363 [16:11<00:00,  2.43it/s]
+Training loss: 1.1778
+loading annotations into memory...
+Done (t=0.85s)
+creating index...
+index created!
+
+Evaluating at threshold 0.5
+Processing (threshold=0.5): 100%|██████████| 602/602 [03:33<00:00,  2.83it/s]
+Loading and preparing results...
+DONE (t=0.00s)
+creating index...
+index created!
+Running per image evaluation...
+Evaluate annotation type *bbox*
+DONE (t=1.13s).
+Accumulating evaluation results...
+DONE (t=0.14s).
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.077
+ Average Precision  (AP) @[ IoU=0.50      | area=   all | maxDets=100 ] = 0.121
+ Average Precision  (AP) @[ IoU=0.75      | area=   all | maxDets=100 ] = 0.083
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.003
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.071
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.233
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=  1 ] = 0.043
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets= 10 ] = 0.086
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.087
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.001
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.080
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.271
+New best model saved with mAP@0.5: 0.0773
+Checkpoint saved at epoch 1
+
+Epoch 2/10
+Training: 100%|██████████| 2363/2363 [16:02<00:00,  2.46it/s]
+Training loss: 1.1141
+loading annotations into memory...
+Done (t=0.83s)
+creating index...
+index created!
+
+Evaluating at threshold 0.5
+Processing (threshold=0.5): 100%|██████████| 602/602 [03:05<00:00,  3.24it/s]
+Loading and preparing results...
+DONE (t=0.00s)
+creating index...
+index created!
+Running per image evaluation...
+Evaluate annotation type *bbox*
+DONE (t=1.23s).
+Accumulating evaluation results...
+DONE (t=0.15s).
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.086
+ Average Precision  (AP) @[ IoU=0.50      | area=   all | maxDets=100 ] = 0.125
+ Average Precision  (AP) @[ IoU=0.75      | area=   all | maxDets=100 ] = 0.097
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.004
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.078
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.241
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=  1 ] = 0.051
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets= 10 ] = 0.099
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.100
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.002
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.091
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.287
+New best model saved with mAP@0.5: 0.0857
+Checkpoint saved at epoch 2
+
+Epoch 3/10
+Training: 100%|██████████| 2363/2363 [15:59<00:00,  2.46it/s]
+Training loss: 1.0710
+loading annotations into memory...
+Done (t=0.82s)
+creating index...
+index created!
+
+Evaluating at threshold 0.5
+Processing (threshold=0.5): 100%|██████████| 602/602 [03:06<00:00,  3.23it/s]
+Loading and preparing results...
+DONE (t=0.00s)
+creating index...
+index created!
+Running per image evaluation...
+Evaluate annotation type *bbox*
+DONE (t=1.02s).
+Accumulating evaluation results...
+DONE (t=0.14s).
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.082
+ Average Precision  (AP) @[ IoU=0.50      | area=   all | maxDets=100 ] = 0.110
+ Average Precision  (AP) @[ IoU=0.75      | area=   all | maxDets=100 ] = 0.092
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.002
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.059
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.236
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=  1 ] = 0.045
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets= 10 ] = 0.086
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.086
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.001
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.067
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.256
+Checkpoint saved at epoch 3
+
+Epoch 4/10
+Training: 100%|██████████| 2363/2363 [15:59<00:00,  2.46it/s]
+Training loss: 1.0354
+loading annotations into memory...
+Done (t=0.86s)
+creating index...
+index created!
+
+Evaluating at threshold 0.5
+Processing (threshold=0.5): 100%|██████████| 602/602 [03:08<00:00,  3.20it/s]
+Loading and preparing results...
+DONE (t=0.01s)
+creating index...
+index created!
+Running per image evaluation...
+Evaluate annotation type *bbox*
+DONE (t=2.06s).
+Accumulating evaluation results...
+DONE (t=0.15s).
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.102
+ Average Precision  (AP) @[ IoU=0.50      | area=   all | maxDets=100 ] = 0.140
+ Average Precision  (AP) @[ IoU=0.75      | area=   all | maxDets=100 ] = 0.112
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.003
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.089
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.281
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=  1 ] = 0.062
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets= 10 ] = 0.112
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.113
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.002
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.099
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.322
+New best model saved with mAP@0.5: 0.1016
+Checkpoint saved at epoch 4
+
+Epoch 5/10
+Training: 100%|██████████| 2363/2363 [16:01<00:00,  2.46it/s]
+Training loss: 1.0004
+loading annotations into memory...
+Done (t=0.82s)
+creating index...
+index created!
+
+Evaluating at threshold 0.5
+Processing (threshold=0.5): 100%|██████████| 602/602 [03:07<00:00,  3.21it/s]
+Loading and preparing results...
+DONE (t=0.00s)
+creating index...
+index created!
+Running per image evaluation...
+Evaluate annotation type *bbox*
+DONE (t=1.16s).
+Accumulating evaluation results...
+DONE (t=0.14s).
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.106
+ Average Precision  (AP) @[ IoU=0.50      | area=   all | maxDets=100 ] = 0.144
+ Average Precision  (AP) @[ IoU=0.75      | area=   all | maxDets=100 ] = 0.118
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.004
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.091
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.279
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=  1 ] = 0.067
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets= 10 ] = 0.118
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.118
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.003
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.104
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.314
+New best model saved with mAP@0.5: 0.1058
+Checkpoint saved at epoch 5
+
+Epoch 6/10
+Training: 100%|██████████| 2363/2363 [15:57<00:00,  2.47it/s]
+Training loss: 0.9705
+loading annotations into memory...
+Done (t=0.82s)
+creating index...
+index created!
+
+Evaluating at threshold 0.5
+Processing (threshold=0.5): 100%|██████████| 602/602 [03:08<00:00,  3.20it/s]
+Loading and preparing results...
+DONE (t=0.00s)
+creating index...
+index created!
+Running per image evaluation...
+Evaluate annotation type *bbox*
+DONE (t=1.16s).
+Accumulating evaluation results...
+DONE (t=0.14s).
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.111
+ Average Precision  (AP) @[ IoU=0.50      | area=   all | maxDets=100 ] = 0.150
+ Average Precision  (AP) @[ IoU=0.75      | area=   all | maxDets=100 ] = 0.126
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.004
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.096
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.291
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=  1 ] = 0.069
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets= 10 ] = 0.121
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.121
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.002
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.107
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.325
+New best model saved with mAP@0.5: 0.1111
+Checkpoint saved at epoch 6
+
+Epoch 7/10
+Training: 100%|██████████| 2363/2363 [15:56<00:00,  2.47it/s]
+Training loss: 0.9448
+loading annotations into memory...
+Done (t=0.84s)
+creating index...
+index created!
+
+Evaluating at threshold 0.5
+Processing (threshold=0.5): 100%|██████████| 602/602 [03:06<00:00,  3.23it/s]
+Loading and preparing results...
+DONE (t=0.00s)
+creating index...
+index created!
+Running per image evaluation...
+Evaluate annotation type *bbox*
+DONE (t=2.02s).
+Accumulating evaluation results...
+DONE (t=0.14s).
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.119
+ Average Precision  (AP) @[ IoU=0.50      | area=   all | maxDets=100 ] = 0.162
+ Average Precision  (AP) @[ IoU=0.75      | area=   all | maxDets=100 ] = 0.132
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.004
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.106
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.313
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=  1 ] = 0.076
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets= 10 ] = 0.133
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.133
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.003
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.119
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.359
+New best model saved with mAP@0.5: 0.1192
+Checkpoint saved at epoch 7
+
+Epoch 8/10
+Training: 100%|██████████| 2363/2363 [15:56<00:00,  2.47it/s]
+Training loss: 0.9205
+loading annotations into memory...
+Done (t=0.82s)
+creating index...
+index created!
+
+Evaluating at threshold 0.5
+Processing (threshold=0.5): 100%|██████████| 602/602 [03:08<00:00,  3.19it/s]
+Loading and preparing results...
+DONE (t=0.01s)
+creating index...
+index created!
+Running per image evaluation...
+Evaluate annotation type *bbox*
+DONE (t=1.21s).
+Accumulating evaluation results...
+DONE (t=0.14s).
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.125
+ Average Precision  (AP) @[ IoU=0.50      | area=   all | maxDets=100 ] = 0.174
+ Average Precision  (AP) @[ IoU=0.75      | area=   all | maxDets=100 ] = 0.137
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.005
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.115
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.316
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=  1 ] = 0.079
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets= 10 ] = 0.139
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.140
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.003
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.130
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.369
+New best model saved with mAP@0.5: 0.1245
+Checkpoint saved at epoch 8
+
+Epoch 9/10
+Training: 100%|██████████| 2363/2363 [15:56<00:00,  2.47it/s]
+Training loss: 0.8910
+loading annotations into memory...
+Done (t=0.80s)
+creating index...
+index created!
+
+Evaluating at threshold 0.5
+Processing (threshold=0.5): 100%|██████████| 602/602 [03:05<00:00,  3.24it/s]
+Loading and preparing results...
+DONE (t=0.00s)
+creating index...
+index created!
+Running per image evaluation...
+Evaluate annotation type *bbox*
+DONE (t=1.25s).
+Accumulating evaluation results...
+DONE (t=0.14s).
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.136
+ Average Precision  (AP) @[ IoU=0.50      | area=   all | maxDets=100 ] = 0.190
+ Average Precision  (AP) @[ IoU=0.75      | area=   all | maxDets=100 ] = 0.148
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.006
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.120
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.342
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=  1 ] = 0.087
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets= 10 ] = 0.152
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.153
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.005
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.137
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.396
+New best model saved with mAP@0.5: 0.1358
+Checkpoint saved at epoch 9
+
+Epoch 10/10
+Training: 100%|██████████| 2363/2363 [15:58<00:00,  2.46it/s]
+Training loss: 0.8702
+loading annotations into memory...
+Done (t=0.82s)
+creating index...
+index created!
+
+Evaluating at threshold 0.5
+Processing (threshold=0.5): 100%|██████████| 602/602 [03:10<00:00,  3.17it/s]
+Loading and preparing results...
+DONE (t=0.01s)
+creating index...
+index created!
+Running per image evaluation...
+Evaluate annotation type *bbox*
+DONE (t=1.33s).
+Accumulating evaluation results...
+DONE (t=0.15s).
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.136
+ Average Precision  (AP) @[ IoU=0.50      | area=   all | maxDets=100 ] = 0.188
+ Average Precision  (AP) @[ IoU=0.75      | area=   all | maxDets=100 ] = 0.150
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.006
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.126
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.335
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=  1 ] = 0.085
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets= 10 ] = 0.152
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.154
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.005
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.142
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.391
+Checkpoint saved at epoch 10
+
+Training complete! Results saved to output/training_results_full.json
+
+Final Evaluation Results:
+
+Epoch 1:
+	 Threshold 0.5:
+	 mAP @ [0.5:0.95]: 0.0773
+	 mAP @ 0.5: 0.1205
+
+Epoch 2:
+	 Threshold 0.5:
+	 mAP @ [0.5:0.95]: 0.0857
+	 mAP @ 0.5: 0.1247
+
+Epoch 3:
+	 Threshold 0.5:
+	 mAP @ [0.5:0.95]: 0.0817
+	 mAP @ 0.5: 0.1103
+
+Epoch 4:
+	 Threshold 0.5:
+	 mAP @ [0.5:0.95]: 0.1016
+	 mAP @ 0.5: 0.1402
+
+Epoch 5:
+	 Threshold 0.5:
+	 mAP @ [0.5:0.95]: 0.1058
+	 mAP @ 0.5: 0.1439
+
+Epoch 6:
+	 Threshold 0.5:
+	 mAP @ [0.5:0.95]: 0.1111
+	 mAP @ 0.5: 0.1503
+
+Epoch 7:
+	 Threshold 0.5:
+	 mAP @ [0.5:0.95]: 0.1192
+	 mAP @ 0.5: 0.1623
+
+Epoch 8:
+	 Threshold 0.5:
+	 mAP @ [0.5:0.95]: 0.1245
+	 mAP @ 0.5: 0.1744
+
+Epoch 9:
+	 Threshold 0.5:
+	 mAP @ [0.5:0.95]: 0.1358
+	 mAP @ 0.5: 0.1903
+
+Epoch 10:
+	 Threshold 0.5:
+	 mAP @ [0.5:0.95]: 0.1357
+	 mAP @ 0.5: 0.1884

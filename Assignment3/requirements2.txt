@@ -1,0 +1,7 @@
+torch>=1.10                # PyTorch for model loading and prefix‐tuning
+torchvision                # Image handling utilities
+transformers               # HF Grounding DINO processor & model, BERT tokenizer/model
+pycocotools                # COCO evaluation for zero‐shot metrics
+tqdm                       # Progress bars during inference and tuning
+Pillow                     # Image I/O
+matplotlib                 # Visualization of detection comparisons
